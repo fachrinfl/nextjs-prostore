@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prostore - E-commerce Website
 
-## Getting Started
+Prostore adalah platform e-commerce yang dibangun menggunakan Next.js, Prisma, dan Neon untuk pengelolaan database serverless. Platform ini menyediakan antarmuka yang responsif dan modern bagi pengguna untuk menjelajahi dan membeli produk.
 
-First, run the development server:
+![Prostore Screenshot](https://github.com/user-attachments/assets/1fa676e1-6d53-48a9-a787-cfabe738d3ea)
+
+---
+
+## Features
+
+- **Product Listing**: Menampilkan produk dengan detail, termasuk nama, harga, dan status ketersediaan.
+- **Newest Arrivals Section**: Menyoroti produk-produk terbaru yang tersedia.
+- **Responsive Design**: Optimasi untuk berbagai perangkat.
+- **Dynamic Pricing and Ratings**: Harga dan rating produk diperbarui secara dinamis.
+
+---
+
+## Tech Stack
+
+Proyek ini dibangun dengan teknologi berikut:
+
+- **Next.js**: 15.1.5 - Untuk server-side rendering dan front-end berbasis React.
+- **React**: 19.0.0 - Untuk membangun antarmuka pengguna.
+- **Prisma**: 6.2.1 - Untuk ORM database dan pengelolaan PostgreSQL serverless dengan Neon.
+- **Neon Database**: Untuk hosting database PostgreSQL serverless.
+- **TailwindCSS**: 3.4.1 - Untuk styling dan desain responsif.
+- **Shadcn UI**: Untuk komponen UI yang dapat disesuaikan dan mudah diakses.
+- **TypeScript**: 5.x - Untuk keamanan tipe selama pengembangan.
+- **WebSocket (ws)**: Digunakan untuk menghubungkan Neon melalui WebSocket.
+
+---
+
+## Installation
+
+Untuk mengatur proyek ini secara lokal, ikuti langkah-langkah berikut:
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/fachrinfl/nextjs-prostore.git
+nextjs-prostore
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install --legacy-peer-deps
+```
+
+### 3. Konfigurasikan Environment Variables
+
+Buat file `.env` di direktori root dan tambahkan variabel berikut:
+
+```bash
+# .env Configuration
+
+Berikut adalah konfigurasi environment untuk aplikasi **Prostore**:
+
+```dotenv
+# Application Information
+NEXT_PUBLIC_APP_NAME = "Prostore" 
+# Nama aplikasi yang akan digunakan secara publik, seperti di metadata atau tampilan front-end.
+
+NEXT_PUBLIC_APP_DESCRIPTION = "A modern ecommerce store built with Next.js" 
+# Deskripsi singkat aplikasi yang dapat digunakan untuk SEO atau metadata.
+
+# Server URL
+NEXT_PUBLIC_SERVER_URL = "http://localhost:3000" 
+# URL server untuk lingkungan pengembangan (localhost).
+
+# Database Connection
+DATABASE_URL = "your-neon-database-connection-string" 
+# URL koneksi ke database Neon (serverless PostgreSQL). Pastikan untuk mengganti kredensial ini di lingkungan produksi.
+
+# Configuration
+LATEST_PRODUCTS_LIMIT = "4" 
+# Konfigurasi untuk menentukan jumlah produk terbaru yang ditampilkan pada halaman utama.
+```
+
+### 4. Jalankan Perintah Prisma
+
+Generate Prisma client dan inisialisasi database:
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+### 5. Mulai Server Pengembangan
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Akses aplikasi di `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
